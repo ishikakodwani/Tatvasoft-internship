@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(242, 214, 214);
+}
+.formcontainer{
+   background-color:  rgb(207, 103, 103);
+   width: 500px;
+   margin-left:500px;
+   margin-top: 70px;
+   text-align: center;
+}
+.formcontainer h2{
+    padding-top:20px;
+}
+button{
+    background-color: blue;
+    color: aliceblue;
+}
