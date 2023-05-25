@@ -8,4 +8,5 @@ export const Navbar=()=>{ return(<>
   <Link to="/about" style={{marginLeft:10 ,color:'black',textDecoration: 'none',columnGap:5}} >About</Link>
   <Link to="/contact" style={{marginLeft:10 ,color:'black',textDecoration: 'none',columnGap:5 }} >Contact</Link>
   <Link to="/login" style={{marginLeft:10 ,color:'black',textDecoration: 'none',columnGap:5 }} >Login</Link>
+  <Link to="/register" style={{marginLeft:10 ,color:'black',textDecoration: 'none',columnGap:5 }} >Register</Link>
   </div></>)};
