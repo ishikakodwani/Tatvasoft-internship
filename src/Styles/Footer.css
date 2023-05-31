@@ -1,0 +1,32 @@
+.down1{
+    margin-top:70px;
+    position: relative;
+    background-color: #f4f4f4;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+  }
+  .allin {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+  }
+  .logo2 img {
+    width: 160px;
+    margin-top:20px;
+  }
+  .H2 {
+    display: block;
+    font-size: 15px;
+    font-weight: lighter;
+    color: #838383;
+    /* font-family: 'Roboto-light'; */
+    position: relative;
+    padding:15px 0px;
+  }

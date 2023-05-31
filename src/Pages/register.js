@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Button } from '@mui/material';
-import { Avatar, Popover, TextField } from "@mui/material";
+import { Button, Select, MenuItem } from '@mui/material';
+import { Breadcrumbs, TextField, Link, Typography } from "@mui/material";
 //import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import '../Styles/register.css'
 export const Register = () => {
   const Navigate = useNavigate();
   const onFormSubmit = (values) => {
@@ -14,16 +15,19 @@ export const Register = () => {
     //console.log("Password:",password);       
     console.log("form submitted", values);
     const requestData = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      roleId: values.roleId,
       email: values.email,
       password: values.password
     }
-    axios.post("https://jsonplaceholder.typicode.com/posts", requestData).then(function (res) { 
-      if(res.status === 201){
-      console.log("response", res.data.id);
-      toast("Login Successfull");
-    }
+    axios.post("https://jsonplaceholder.typicode.com/posts", requestData).then(function (res) {
+      if (res.status === 201) {
+        console.log("response", res.data.id);
+        toast("Register Successfull");
+      }
     })
-    Navigate("/");
+    Navigate("/login");
   };
 
   const handleClick = (event) => {
@@ -37,13 +41,20 @@ export const Register = () => {
     setOpen(false);
   };
   const validation = Yup.object().shape({
-    email: Yup.string().email("Please enter a valid email").required(),
-    //password: Yup.string().min(8).required("Password"),
-    password: Yup.string().required('No password provided.').min(8, 'Password is too short - should be 8 chars minimum.').matches(/[a-zA-Z]/, 'Password can only contain Latin letter'),
+    firstName: Yup.string().min(3, "Please Enter Minimum 3 Charactors.").required("First Name is Required"),
+    lastName: Yup.string().min(3, "Please Enter Minimum 3 Charactors.").required("Last Name is Required"),
+    roleId: Yup.string().required("Please select a Role"),
+    email: Yup.string().email("Please Enter Valid Email.").required("Email Id is Required").matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Please Enter Valid Email."),
+    password: Yup.string().min(8, "Please Enter Minimum 8 Charactors.").required("Password is Required").matches(/[a-zA-Z0-9]/, "Password contains only letters, numbers"),
+    confirmpassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match').required(" Confirm Password is Required"),
   });
   const initialValues = {
-    email: "",
-    password: "",
+    firstName:"",
+    lastName:"",
+    roleId:"",
+    email:"",
+    password:"",
+    confirmpassword:"",
   }
   //const [email,setEmail]=useState("ishika@gmail.com");   
   //const [password,setPassword]=useState("***");
@@ -77,26 +88,79 @@ export const Register = () => {
   //      </div>
   //   </Popover>
   return (
-    <div className="formcontainer">
-      <h2 >Login</h2>
-      <hr />
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <Avatar sx={{ bgcolor: "rgb(242, 214, 214)", color: "black" }} onClick={handleClick}>IK</Avatar></div>
-
-      <Formik initialValues={initialValues}
-        onSubmit={onFormSubmit}
-        validationSchema={validation}>
-
-        {({ value, errors, touched, handleBlur, handleChange, handleSubmit }) => (<form onSubmit={handleSubmit}>
-          <TextField sx={{ bgcolor: "rgb(242, 214, 214)", color: "black  " }} type="email" label="Name" name="email" variant="outlined" placeholder="Enter your email" id="email" onChange={handleChange} onBlur={handleBlur} /><br />
-          <span style={{ color: "black", fontWeight: "bold" }}>{errors.email && touched.email && errors.email}</span><br /><br />
-          <TextField sx={{ bgcolor: "rgb(242, 214, 214)" }} label="Password" type="password" name="password" variant="outlined" placeholder="Enter Password" id="password" onChange={handleChange} onBlur={handleBlur} /><br />
-          <span style={{ color: "black", fontWeight: "bold" }}>{errors.password && touched.password && errors.password}</span><br /><br />
-          <Button sx={{ bgcolor: "rgb(242, 214, 214);", marginBottom: 5 }} variant="submit" type="Submit">Submit</Button>
-        </form>)}
-      </Formik>
-
+    <div className="container">
+      <div className="homenav" style={{ fontSize: 18 }}>
+        <Breadcrumbs separator="›" aria-label="breadcrumb" className="breadcrumb-wrapper">
+          <Link color="inherit" href="/" title="Home" className="link-custom" style={{ textDecoration: "none", fontSize: 18 }} >Home</Link>
+          <Typography className="typo-custom" style={{ fontSize: 18 }}>Create an Account</Typography>
+        </Breadcrumbs></div>
+      <div>
+        <div className='center'>
+          <h1 className="loginheader">
+            Login or Create an Account
+            <span className="underline"></span>
+          </h1>
+        </div>
+      </div>
+      <div className="regcointainer">
+        <div className="personalinfo">
+          <Typography variant="h6" className="custom-typography" style={{ fontWeight: 500 }}>Personal Information</Typography>
+          <div class="line"></div>
+          <p className='paraStyle'>Please enter the following information to create your account.</p>
+        </div>
+        <div className="formcontainer">
+          <Formik initialValues={initialValues}
+            onSubmit={onFormSubmit}
+            validationSchema={validation}>
+            {({ value, errors, touched, handleBlur, handleChange, handleSubmit }) => (
+              <form onSubmit={handleSubmit}>
+                <div className="userdetails">
+                  <div className="userinput">
+                    <span className="Label">FirstName*</span>
+                    <TextField className="textinput" type="name" name="firstName" placeholder="Enter your FirstName" id="firstName" onChange={handleChange} onBlur={handleBlur} />
+                    {touched.firstName && errors.firstName && <span class="error">{errors.firstName}</span>}
+                  </div>
+                  <div className="userinput">
+                    <span className="Label">LastName*</span>
+                    <TextField className="textinput" type="name" name="lastName" placeholder="Enter your lastName" id="lastName" onChange={handleChange} onBlur={handleBlur} />
+                    {touched.lastName && errors.lastName && <span class="error">{errors.lastName}</span>}
+                  </div>
+                  <div className="userinput">
+                    <span className="Label">Email*</span>
+                    <TextField className="textinput" type="email" name="email" placeholder="Enter your email" id="email" onChange={handleChange} onBlur={handleBlur} />
+                    {errors.email && touched.email && <span className="error">{errors.email}</span>}</div>
+                  <div className="userinput">
+                    <span className="Label">Roles*</span>
+                    <Select
+                      className="selectinput"
+                      labelId="Role"
+                      id="roleId"
+                      name="roleId"
+                      onChange={handleChange}
+                    >
+                      <MenuItem value={1}>Buyer</MenuItem>
+                      <MenuItem value={2}>Seller</MenuItem>
+                    </Select>
+                    {touched.roleId && errors.roleId && <span class="error">{errors.roleId}</span>}
+                  </div>
+                  <div className="personalinfo">
+                    <Typography variant="h6" className="custom-typography" style={{ fontWeight: 500 }}>Login Information</Typography>
+                    <div class="line"></div>
+                  </div>
+                  <div className="userinput">
+                    <span className="Label">Password*</span>
+                    <TextField className="textinput" type="password" name="password" placeholder="Enter Password" id="password" onChange={handleChange} onBlur={handleBlur} />
+                    {errors.password && touched.password && <span className="error"> {errors.password}</span>}</div>
+                  <div className="userinput">
+                    <span className="Label">Confirm Password*</span>
+                    <TextField className="textinput" type="password" name="confirmpassword" placeholder="Enter Password" id="confirmpassword" onChange={handleChange} onBlur={handleBlur} />
+                    {touched.confirmpassword && errors.confirmpassword && <span class="error">{errors.confirmpassword}</span>}</div>
+                  <button className="registerbutton" type="submit">Register</button>
+                </div>
+              </form>)}
+          </Formik>
+        </div>
+      </div>
     </div>
   );
-
 }

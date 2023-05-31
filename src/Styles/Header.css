@@ -1,0 +1,97 @@
+
+.topheader{
+    padding: 6px 0;
+    text-align: center;
+    background-color: #f14d54;
+    display: block;
+}
+.navcontainer{
+    max-width: 1250px;
+    height:92px;
+    margin:auto;
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logocontainer{ 
+flex: 0 0 180px;
+max-width: 100%;
+align-content: center;
+display: flex;
+justify-items: space-between;
+}
+.cart{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    border:1px solid #ccc;
+    padding:8px 13px;
+    border-radius: 4px;
+    color: black;
+    width: 70px;
+    height: 20px;
+}
+.logoo{
+    max-width: 180px;
+}
+.appbar{
+    height: 80px;
+    background-color: #f4f4f4;
+    display: flex;  
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.appcontainer{
+  margin:20px;
+  height:40px;
+}
+.searchbar{
+    justify-content:space-around;
+    align-items: center;
+    display: flex;
+    color: #f4f4f4;
+}
+.homenav{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    margin: 50px;
+}
+.search-btn{
+    background-color: #80BF32;
+    color:#f4f4f4;
+    cursor: pointer;
+    height: 45px;
+    align-items: center;
+    border:none;
+    margin-left: 15px;
+    display: flex;
+    max-width:129px;
+    justify-content: center;
+    width:100%;
+    font-size:16;
+    border-radius: 5px;
+
+}
+.search-btn:hover{
+    background-color: #80BF32;
+    cursor: pointer;
+}
+.searchbox{
+    height:40px;  
+    width: 600px;
+    font-style:italic;
+    font-size:16px;
+    font-weight:lighter;
+    color:#ccc;
+    padding-left:15px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+
+}
