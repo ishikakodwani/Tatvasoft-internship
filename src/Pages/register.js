@@ -8,9 +8,10 @@ import * as Yup from "yup";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import '../Styles/register.css'
+import { Troubleshoot } from "@mui/icons-material";
 export const Register = () => {
   const Navigate = useNavigate();
-  const onFormSubmit = (values) => {
+  const onFormSubmit =  async (values) => {
     //console.log("Email:",email);
     //console.log("Password:",password);       
     console.log("form submitted", values);
@@ -21,10 +22,20 @@ export const Register = () => {
       email: values.email,
       password: values.password
     }
-    axios.post("https://jsonplaceholder.typicode.com/posts", requestData).then(function (res) {
-      if (res.status === 201) {
+    const res = await axios.post("https://book-e-sell-node-api.vercel.app/api/user", requestData).then(function (res) {
+      if (res.status === 200) {
         console.log("response", res.data.id);
-        toast("Register Successfull");
+        toast.success("Register Successfull",
+          {
+            position: "bottom-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
       }
     })
     Navigate("/login");
@@ -49,12 +60,12 @@ export const Register = () => {
     confirmpassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match').required(" Confirm Password is Required"),
   });
   const initialValues = {
-    firstName:"",
-    lastName:"",
-    roleId:"",
-    email:"",
-    password:"",
-    confirmpassword:"",
+    firstName: "",
+    lastName: "",
+    roleId: "",
+    email: "",
+    password: "",
+    confirmpassword: "",
   }
   //const [email,setEmail]=useState("ishika@gmail.com");   
   //const [password,setPassword]=useState("***");

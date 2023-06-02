@@ -1,38 +1,181 @@
-.top-heading{
+/* .top-heading {
     font-size: 20px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #414141;
-    max-width:1260px;
+    max-width: 1260px;
     width: 100%;
 }
-/* .container{
-} */
-.top-content{
-    max-width:1260px;
+
+.top-content {
+    max-width: 1260px;
     width: 100%;
-    display:flex; 
-    justify-content:space-between;
-    align-items: center; 
-    margin:auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
     box-sizing: border-box;
 }
-.customertitle{
+
+.customertitle {
     font-size: 20px;
     font-weight: bolder;
-    color:#323232;
+    color: #323232;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     justify-content: flex-start;
     display: flex;
 }
-.bullet-list{
-    list-style-type:inherit;
+
+.bullet-list {
+    list-style-type: inherit;
     color: #323232;
     font-size: 16px;
     font-weight: 500;
-    display:block;
+    display: block;
 
 }
-.bullet-list li{
-    display:flex;
+
+.bullet-list li {
+    display: flex;
     justify-content: flex-start;
+} */
+
+.allout {
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 1250px;
+    margin: auto;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
+
+.allout h2 {
+    display: flex;
+    font-size: 20px;
+    font-weight: lighter;
+    color: #323232;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    padding-bottom: 15px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.col-1 {
+    min-width: 625px;
+    height: 100%;
+    height: max-content;
+    flex-basis: 50%;
+}
+
+.allout h2 {
+    display: flex;
+    font-size: 20px;
+    font-weight: lighter;
+    color: #323232;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    padding-bottom: 15px;
+}
+
+.H2 {
+    display: flex;
+    font-size: 15px;
+    font-weight: lighter;
+    color: #838383;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    padding: 15px 0px;
+}
+
+.ul1 {
+    font-size: 15px;
+    color: #212121;
+    font-weight: 300;
+    list-style-type: inherit;
+    padding-left: 15px;
+    
+}
+
+.ul1 li {
+    color: #212121;
+    font-weight: 400;
+    padding: 0 0 0 12px;
+    position: relative;
+    text-align: start;
+}
+
+.button_create {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    max-width: 220px;
+    width: 100%;
+    margin-top: 130px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #f14d54;
+    justify-content: center;
+}
+
+.inputs {
+    font-size: 15px;
+    color: #212121;
+    font-weight: 300;
+    margin-bottom:2px;
+    
+}
+
+.inputs span {
+    display: flex;
+    font-size: 15px;
+    color: #212121;
+    font-weight: 300;
+}
+
+.inputs span.error {
+    display: flex;
+    /* display: block; */
+    color: red;
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+.search-input1 {
+    color: rgb(33, 33, 33);
+    width: 100%;
+    border: 1px solid #cacaca;
+    height: 40px;
+    margin-top: 9px;
+    padding: 0 15px !important;
+    font-size: 15px;
+    transition: all 0.3s;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+.button_login{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 45px;
+    max-width: 100px;
+    width: 100%;
+    margin-top: 60px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color:#f14d54;
+  }
