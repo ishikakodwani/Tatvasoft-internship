@@ -145,10 +145,12 @@ export const Register = () => {
                     <Select
                       className="selectinput"
                       labelId="Role"
-                      id="roleId"
+                      id={"roleId"}
                       name="roleId"
                       onChange={handleChange}
+                      onBlur={handleBlur}
                     >
+                      <MenuItem value={0}></MenuItem>
                       <MenuItem value={1}>Buyer</MenuItem>
                       <MenuItem value={2}>Seller</MenuItem>
                     </Select>

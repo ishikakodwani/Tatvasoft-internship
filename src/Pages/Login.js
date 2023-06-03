@@ -13,7 +13,7 @@ import { useAuthContext } from '../utility/auth';
 export const Login = () => {
   const { login, setLogin } = useContext(Loginservice);
   const Navigate = useNavigate();
-  // const authContext = useAuthContext();
+  const AuthContext = useAuthContext();
   useEffect(() => {
   }, []);
 
@@ -53,7 +53,7 @@ export const Login = () => {
           theme: "dark",
         });
        }
-      //  authContext.setUser(res);
+    // AuthContext.setUser(res);
     setLogin(true);
     Navigate("/") ;
   };

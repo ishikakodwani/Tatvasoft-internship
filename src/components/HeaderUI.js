@@ -11,6 +11,7 @@ export const HeaderUI = () => {
         <div className="navcontainer">
              <img src="/images/Tatvasoftlogo.svg" alt='Logo' className='logoo' ></img>
              <div className="navbar">
+             
                 <Navbar/>
                 <a href="/card" alt="Cart" className="cart" style={{margin:"0 0 0 10px"}}>
                 <ShoppingCartIcon sx={{color:"#f14d54"}}/>

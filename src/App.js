@@ -18,10 +18,8 @@ import { AuthWrapper } from './utility/auth';
 function App() {
   return (
     <div className="App">
-    <Loginprovider>
-      {/* <Loginprovider> */}
+    <Loginprovider> 
     <BrowserRouter>
-
     <HeaderUI/>
     <ToastContainer/>
     <AuthWrapper>

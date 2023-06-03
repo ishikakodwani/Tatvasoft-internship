@@ -1,9 +1,12 @@
+import { Booklist } from "./Booklist";
+
 export const Home=()=> {
-    const ButtonClick=()=>{
-     alert("Button Clicked");
-        };
+    // const ButtonClick=()=>{
+    //  alert("Button Clicked");
+    //     };
     return (<>
-       <p> HomePage</p>
-       <button onClick={ButtonClick}>ClickMe!</button>
+    <Booklist/>
+       {/* <p> HomePage</p>
+       <button onClick={ButtonClick}>ClickMe!</button> */}
     </>);
 };

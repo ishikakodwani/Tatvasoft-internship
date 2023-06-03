@@ -12,9 +12,12 @@ import { AuthContext } from '../utility/auth';
 export const Navigations=()=>{
   const authContext = useContext(AuthContext);
 const Redirect = <Navigate to={RoutePaths.Login}/>
-const isLogin=useContext(Loginservice);
+const {login,setLogin}=useContext(Loginservice);
+const isLogin={
+  login:login,
+  setLogin:setLogin,
+}
 return(<>
-    <Loginprovider>
      <Routes>
           <Route path="/" element={isLogin ? <Home/> : Redirect}></Route>
           <Route
@@ -27,6 +30,5 @@ return(<>
           <Route path="/register" element={<Register/>}></Route>
           <Route path="*" element={<NotFound/>}></Route>
         </Routes>
-        </Loginprovider>
 </>)
 }
